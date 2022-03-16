@@ -1,18 +1,31 @@
+{% load static %}
 <html>
     <head>
         <title>Sbredman's blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Russo One&subset=latin,cyrillic" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div>
-            <h1><a href="https://www.youtube.com/watch?v=k2uAajRf0B0">Поздравление с Новым Годом от Вол СБ!</a></h1>
+        <div class="page-header">
+            <h1><a href="https://www.youtube.com/watch?v=k2uAajRf0B0">Здарова! Нажми на меня и узнай, что мы о тебе думаем :)</a></h1>
         </div>
 
-        {% for post in posts %}
-        <div>
-            <p>Опубликовано: {{ post.published_date }}</p>
-            <h1><a href="https://www.youtube.com/watch?v=KP4icHlAomg">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+        <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>Опубликовано: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+    </div>
+</div>
     </body>
 </html>
